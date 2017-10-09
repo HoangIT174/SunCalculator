@@ -40,7 +40,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private Button btnAdvance;
 
 
-    private DatabaseManager databaseManager;
     private ArrayList<ItemLocation> arrDataLocation;
     private List<String> dataLocation;
 
@@ -84,7 +83,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         btnSeach = (Button) findViewById(R.id.btn_search_location);
         btnSeach.setOnClickListener(this);
-        btnAdvance = (Button) findViewById(R.id.btnAdvance);
+        btnAdvance = (Button) findViewById(R.id.btn_add_new_location);
         btnAdvance.setOnClickListener(this);
 
         tvLocation = (TextView) findViewById(R.id.tv_display_location);
@@ -108,10 +107,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     private void initData() {
-        databaseManager = new DatabaseManager(this);
         arrDataLocation = new ArrayList<>();
         dataLocation = new ArrayList<>();
-        arrDataLocation.addAll(databaseManager.getLocation());
+        arrDataLocation.addAll(DatabaseManager.getInstance(MainActivity.this).getLocation());
         for (ItemLocation item : arrDataLocation) {
             dataLocation.add(item.getCityName());
         }
@@ -140,8 +138,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.btn_search_location:
                 actionSearchLocation();
                 break;
-            case R.id.btnAdvance:
-                Intent intent = new Intent(MainActivity.this, Task2Activity.class);
+            case R.id.btn_add_new_location:
+                Intent intent = new Intent(MainActivity.this, AddLocationActivity.class);
                 startActivity(intent);
                 break;
         }

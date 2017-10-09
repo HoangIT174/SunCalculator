@@ -108,8 +108,8 @@
         android:layout_weight="1"></DatePicker>
 
     <Button
-        android:id="@+id/btnAdvance"
+        android:id="@+id/btn_add_new_location"
         android:layout_width="120dp"
         android:layout_height="60dp"
-        android:text="Advance" />
+        android:text="Add Location" />
 </LinearLayout>

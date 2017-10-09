@@ -20,30 +20,35 @@
         android:orientation="vertical">
 
         <EditText
+            android:id="@+id/edi_city_name"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
             android:hint="City Name" />
 
         <EditText
+            android:id="@+id/edt_latitude"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
             android:hint="Latitude" />
 
         <EditText
+            android:id="@+id/edt_longitude"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
             android:hint="Longitude" />
 
         <EditText
+            android:id="@+id/edt_time_zone"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="15dp"
             android:hint="Time Zone" />
 
         <Button
+            android:id="@+id/btn_add"
             android:layout_width="150dp"
             android:layout_height="60dp"
             android:layout_marginTop="15dp"

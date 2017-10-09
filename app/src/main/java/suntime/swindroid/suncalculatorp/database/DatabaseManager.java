@@ -1,5 +1,6 @@
 package suntime.swindroid.suncalculatorp.database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -23,11 +24,20 @@ public class DatabaseManager {
 
     private Context context;
     private SQLiteDatabase sqLiteDatabase;
+    private static DatabaseManager databaseManager;
 
-    public DatabaseManager(Context context) {
+    public static DatabaseManager getInstance(Context context) {
+        if (databaseManager == null) {
+            databaseManager = new DatabaseManager(context);
+        }
+        return databaseManager;
+    }
+
+    private DatabaseManager(Context context) {
         this.context = context;
         copyDatabase();
     }
+
 
     private void copyDatabase() {
         new File(DATA_PATH).mkdir();
@@ -92,5 +102,20 @@ public class DatabaseManager {
             }
         }
         return arrLocation;
+    }
+
+    public boolean addNewLocation(String cityName, String latitude, String longitude, String timeZone) {
+        opendDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("CityName", cityName);
+        contentValues.put("Latitude", cityName);
+        contentValues.put("Longitude", cityName);
+        contentValues.put("TimeZone", cityName);
+
+        long valueResult = sqLiteDatabase.insert("LOCATION", null, contentValues);
+        if (-1 == valueResult) {
+            return false;
+        }
+        return true;
     }
 }
