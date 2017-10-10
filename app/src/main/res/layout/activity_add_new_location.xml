@@ -27,6 +27,7 @@
             android:hint="City Name" />
 
         <EditText
+            android:inputType="numberDecimal"
             android:id="@+id/edt_latitude"
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -34,6 +35,7 @@
             android:hint="Latitude" />
 
         <EditText
+            android:inputType="numberDecimal"
             android:id="@+id/edt_longitude"
             android:layout_width="match_parent"
             android:layout_height="60dp"

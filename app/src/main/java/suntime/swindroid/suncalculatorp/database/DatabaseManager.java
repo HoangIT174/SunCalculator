@@ -108,9 +108,9 @@ public class DatabaseManager {
         opendDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("CityName", cityName);
-        contentValues.put("Latitude", cityName);
-        contentValues.put("Longitude", cityName);
-        contentValues.put("TimeZone", cityName);
+        contentValues.put("Latitude", latitude);
+        contentValues.put("Longitude", longitude);
+        contentValues.put("TimeZone", timeZone);
 
         long valueResult = sqLiteDatabase.insert("LOCATION", null, contentValues);
         if (-1 == valueResult) {
